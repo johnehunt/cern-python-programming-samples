@@ -13,6 +13,9 @@ class Person:
     def __str__(self):
         return self.name + ' is ' + str(self.age)
 
+    def __repr__(self):
+        return f'Person(name={self.name}, age={self.age})'
+
     def birthday(self):
         print('Happy birthday you were', self.age)
         self.age += 1
