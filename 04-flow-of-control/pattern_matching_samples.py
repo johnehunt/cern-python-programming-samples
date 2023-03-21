@@ -1,6 +1,6 @@
-#Uses of structural matching in python
+# Uses of structural matching in python
 
-#Simple matcher style
+# Simple matcher style
 def greeter(language):
     if language == 'English':
         print('Hello')
@@ -11,7 +11,9 @@ def greeter(language):
     elif language == 'German':
         print('Hallo')
 
+
 greeter('Spanish')
+
 
 def greeter2(language):
     match language:
@@ -24,7 +26,9 @@ def greeter2(language):
         case 'German':
             print('Hallo')
 
+
 greeter2('Spanish')
+
 
 def greeter2a(language):
     match language:
@@ -38,7 +42,9 @@ def greeter2a(language):
         case 'German':
             print('Hallo')
 
+
 greeter2a('Spanish')
+
 
 def get_status_message(status):
     match status:
@@ -51,8 +57,10 @@ def get_status_message(status):
         case _:
             return 'Something is wrong'
 
+
 print(get_status_message(404))
 print(get_status_message(401))
+
 
 # handle unknown values
 def greeter3(language):
@@ -68,7 +76,9 @@ def greeter3(language):
         case _:
             print('Unknown language')
 
+
 greeter3('Welsh')
+
 
 # Pick up an unknown value
 def greeter4(language):
@@ -84,7 +94,9 @@ def greeter4(language):
         case unknown:
             print(f'Language {unknown} is not yet known to us')
 
+
 greeter4('Welsh')
+
 
 # Or patterns
 
@@ -101,17 +113,20 @@ def greeter5(language):
         case unknown:
             print(f'Language {unknown} is not yet known to us')
 
+
 greeter5('English')
 greeter5('American')
 
+
 # matching sequences such as a list or tuple
-#Tuples - can match on tuple values
+# Tuples - can match on tuple values
+
 
 def locator(point):
     match point:
         case (0, 0):
             print('Corner')
-        case(0, y):
+        case (0, y):
             print(f'Left edge at x=0, y={y}')
         case (x, 0):
             print(f'Top edge at x={x}, y=0')
@@ -119,6 +134,7 @@ def locator(point):
             print(f'Point in grid at x={x}, y={y}')
         case _:
             raise ValueError('Not a point tuple')
+
 
 cursor = (0, 0)
 locator(cursor)
@@ -129,6 +145,7 @@ locator(cursor)
 cursor = (10, 5)
 locator(cursor)
 
+
 def banking_operation1(action):
     match action:
         case ['balance']:
@@ -137,12 +154,12 @@ def banking_operation1(action):
             print(f'Depositing {amount}')
         case ['withdraw', amount]:
             print(f'Withdrawing {amount}')
-        case ['deposit', *amounts]:
-            print(f'Depositing multiple amounts - {amounts}')
+
 
 banking_operation1(['balance'])
 banking_operation1(['deposit', 12.55])
 banking_operation1(['withdraw', 9.99])
+
 
 def banking_operation2(action):
     match action:
@@ -155,7 +172,11 @@ def banking_operation2(action):
         case ['deposit', *amounts]:
             print(f'Depositing multiple amounts - {amounts}')
 
+
+banking_operation2(['deposit', 2.51, 9.44])
 banking_operation2(['deposit', 2.51, 9.44, 3.21, 5.76])
+banking_operation2(['deposit'])
+
 
 def banking_operation3(action):
     match action:
@@ -170,25 +191,32 @@ def banking_operation3(action):
         case ['deposit', *amounts]:
             print(f'Depositing multiple amounts - {amounts}')
 
+
 banking_operation3(['help'])
 banking_operation3(['info'])
+
 
 def direction(actions):
     match actions:
         case ['go', ("north" | "south" | "east" | "west")]:
             print('Going north or south or east or west')
 
+
 direction(['go', 'north'])
+
 
 def direction2(actions):
     match actions:
         case ['go', ("north" | "south" | "east" | "west") as towards]:
             print(f'Going {towards}')
 
+
 direction2(['go', 'north'])
 
 # Adding conditionals to patterns
-VALID_DIRECTIONS = ["north" , "south" , "east" , "west"]
+VALID_DIRECTIONS = ["north", "south", "east", "west"]
+
+
 def handle_command(command):
     match command:
         case ['go', direction] if direction in VALID_DIRECTIONS:
@@ -196,16 +224,19 @@ def handle_command(command):
         case _:
             print('Wrong direction')
 
+
 handle_command(['go', 'east'])
 handle_command(['go', 'north-east'])
 
 # Matching against classes - using positional attributes
 from dataclasses import dataclass
 
+
 @dataclass
 class Click:
     x: int
     y: int
+
 
 def handle_click(point):
     match point:
@@ -218,6 +249,7 @@ def handle_click(point):
 cursor = Click(10, 5)
 handle_click(cursor)
 
+
 # If no natural ordering to the class can add a __match_args__ attribute
 
 class Person:
@@ -227,12 +259,14 @@ class Person:
         self.name = pos
         self.age = btn
 
+
 def print_person(person):
     match person:
         case Person(name, age):
             print(f'Person name={name}, age={age}')
         case _:
             print('Not a person')
+
 
 p = Person('John', 21)
 print_person(p)
