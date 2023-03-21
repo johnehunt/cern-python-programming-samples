@@ -26,7 +26,21 @@ def greeter2(language):
 
 greeter2('Spanish')
 
-def get_error_message(status):
+def greeter2a(language):
+    match language:
+        case 'English':
+            print('Hello')
+        case 'Spanish':
+            print('Hola')
+            print('Buenas')
+        case 'French':
+            print('Bonjour')
+        case 'German':
+            print('Hallo')
+
+greeter2a('Spanish')
+
+def get_status_message(status):
     match status:
         case 400:
             return 'Bad request'
@@ -37,7 +51,8 @@ def get_error_message(status):
         case _:
             return 'Something is wrong'
 
-print(get_error_message(404))
+print(get_status_message(404))
+print(get_status_message(401))
 
 # handle unknown values
 def greeter3(language):
