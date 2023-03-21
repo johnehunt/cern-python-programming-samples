@@ -55,4 +55,12 @@ for i in range(0, 6):
 else:
     print()
     print('All iterations successful')
+
+print('-' * 25)
+
+# Can also loop from a larger number down to a smaller number
+for i in range(10, 0, -1):
+    print(f'{i},', end='')
+print()
+
 print('Done')
