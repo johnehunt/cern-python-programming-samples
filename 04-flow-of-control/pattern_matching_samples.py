@@ -229,6 +229,7 @@ handle_command(['go', 'east'])
 handle_command(['go', 'north-east'])
 
 # Matching against classes - using positional attributes
+
 from dataclasses import dataclass
 
 
@@ -248,6 +249,7 @@ def handle_click(point):
 
 cursor = Click(10, 5)
 handle_click(cursor)
+handle_click('aclick')
 
 
 # If no natural ordering to the class can add a __match_args__ attribute
@@ -255,9 +257,9 @@ handle_click(cursor)
 class Person:
     __match_args__ = ("name", "age")
 
-    def __init__(self, pos, btn):
+    def __init__(self, pos, age):
         self.name = pos
-        self.age = btn
+        self.age = age
 
 
 def print_person(person):
