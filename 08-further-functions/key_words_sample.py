@@ -15,3 +15,9 @@ my_function('Paul', 'Fiona',
             son_number_one='Andrew',
             son_number_two='James',
             daughter='Joselyn')
+
+def other_func(**kwargs):
+    for key in kwargs.keys():
+        print('key:', key, 'has value: ', kwargs[key])
+
+other_func(name='John', age = 21)
