@@ -9,12 +9,13 @@ class WorkerThread(Thread):
                          name=name)
 
     def run(self):
-        for i in range(0, 10):
+        for _ in range(0, 10):
             print('.', end='', flush=True)
             sleep(1)
 
 
-print('Starting')
-t = WorkerThread()
-t.start()
-print('\nDone')
+if __name__ == '__main__':
+    print('Starting')
+    t = WorkerThread()
+    t.start()
+    print('\nDone')
