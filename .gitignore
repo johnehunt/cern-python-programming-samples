@@ -21,3 +21,4 @@ bin-release/
 /.idea/modules.xml
 /.idea/vcs.xml
 /.idea/
+/venv
