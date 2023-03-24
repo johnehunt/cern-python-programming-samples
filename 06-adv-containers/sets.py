@@ -33,9 +33,11 @@ print('Symmetric Difference:', s1 ^ s2)
 s1 = {(1, 2, 3)}
 print(s1)
 
-# Need to convert sets and lists into frozensets
+# Need to convert sets  into frozensets
 s2 = {frozenset({1, 2, 3})}
 print(s2)
 
-s3 = {frozenset([1, 2, 3])}
-print(s3)
+# Convert lists into a tuple
+list1 = [55, 60, 43, 55, 65]
+results_set = {tuple(list1), 'John', 'CS110'}
+print(f'results_set: {results_set}')
