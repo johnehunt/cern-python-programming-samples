@@ -5,11 +5,12 @@ print(basket)  # show that duplicates have been removed
 print(len(basket))
 
 for item in basket:
-    print(item)
+    print(item, ',', sep='', end='')
 
+print()
 print('apple' in basket)
 
-basket.remove('apple')
+basket.remove('apple')  # raises an error if not present
 basket.discard('apricot')
 print(basket)
 
@@ -25,10 +26,19 @@ print(basket)
 
 s1 = {'apple', 'orange', 'banana'}
 s2 = {'grapefruit', 'lime', 'banana'}
+
 print('Union:', s1 | s2)
+print('Union method: ', s1.union(s2))
+
 print('Intersection:', s1 & s2)
+print('Intersection method: ', s1.intersection(s2))
+
 print('Difference:', s1 - s2)
+print('Difference method: ', s1.difference(s2))
+
+# returns all the items present in given sets, except the items in their intersections
 print('Symmetric Difference:', s1 ^ s2)
+print('Symmetric diff method: ', s1.symmetric_difference(s2))
 
 s1 = {(1, 2, 3)}
 print(s1)
