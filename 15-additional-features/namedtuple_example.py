@@ -16,11 +16,12 @@ print(f'Name via index (student[0]): {undergrad_student[0]}')
 # Access using name
 print(f'Name via named member (student.name): {undergrad_student.name}')
 
-# Can field out the field names using _fields
+# Can find out the field names using _fields
 print(undergrad_student._fields)
 
 for value in undergrad_student:
     print(value)
 
-postgrad.name = "Pete"
-print(postgrad)
+# Invalid cos its a tuple
+# postgrad.name = "Pete"
+# print(postgrad)
