@@ -8,13 +8,20 @@ def worker(msg):
         sleep(1)
 
 
-if __name__ == '__main__':
-    print('Starting')
-    t1 = Thread(target=worker, args='A')
-    t2 = Thread(target=worker, args='B')
-    t3 = Thread(target=worker, args='C')
-    t1.start()
-    t2.start()
-    t3.start()
+def worker2(prompt, message):
+    for i in range(0, 10):
+        print(prompt, message, end='', sep='', flush=True)
+        sleep(1)
 
-    print('Done')
+
+print('Starting')
+t1 = Thread(target=worker, args='A')
+t2 = Thread(target=worker, args='B')
+t3 = Thread(target=worker, args='C')
+t4 = Thread(target=worker2, args=('D', 'E'))
+t1.start()
+t2.start()
+t3.start()
+t4.start()
+
+print('Done')

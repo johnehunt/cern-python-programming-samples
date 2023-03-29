@@ -14,8 +14,8 @@ class WorkerThread(Thread):
             sleep(1)
 
 
-if __name__ == '__main__':
-    print('Starting')
-    t = WorkerThread()
-    t.start()
-    print('\nDone')
+
+print('Starting')
+t = WorkerThread()
+t.start()
+print('\nDone')
