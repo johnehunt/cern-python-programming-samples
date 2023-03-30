@@ -1,8 +1,9 @@
-from multiprocessing import Pool
+from multiprocessing import Pool, set_start_method
 
 
 def worker(x):
-    print('In worker with: ', x)
+    for _ in range(x * x):
+        print(x, end='', flush=True)
     return x * x
 
 
